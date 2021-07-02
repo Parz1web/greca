@@ -134,7 +134,7 @@
 }
 
 .firstFrame{
-    background: url(/img/firstFrame.png) center no-repeat;
+    background: url(../img/firstFrame.png) center no-repeat;
     background-size: cover;
     color:#FFFFFF;
     padding: 200px 0;
@@ -161,7 +161,7 @@
     padding: 5rem 0;
   }
   &-info{
-    max-width:360px;
+    max-width:450px;
     div+div{
       margin-top: 10px;
     }
