@@ -1,26 +1,35 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-:focus, :active {
+:focus,
+:active {
   outline: none;
 }
 
-a:focus, a:active {
+a:focus,
+a:active {
   outline: none;
 }
 
-nav, footer, header, aside {
+nav,
+footer,
+header,
+aside {
   display: block;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -34,7 +43,9 @@ html, body {
   box-sizing: border-box;
 }
 
-input, button, textarea {
+input,
+button,
+textarea {
   font-family: inherit;
 }
 
@@ -55,7 +66,8 @@ a {
   text-decoration: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   text-decoration: none;
 }
 
@@ -76,7 +88,12 @@ img {
   vertical-align: top;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: inherit;
   font-weight: 400;
 }
@@ -100,6 +117,141 @@ html {
   padding: 0 2rem;
 }
 
+/*  HAMBURGER  */
+.hamburger-menu {
+  display: none;
+  position: relative;
+}
+
+#menu__toggle {
+  display: none;
+}
+
+/* стилизуем кнопку */
+.menu__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* используем flex для центрирования содержимого */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* центрируем содержимое кнопки */
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 60%;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* добавляем "гамбургер" */
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #616161;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+.menu__logo img {
+  position: absolute;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 240px;
+  margin: 0;
+}
+
+.menu__box {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 240px;
+  height: 100%;
+  margin: 0;
+  padding: 80px 0;
+  list-style: none;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 5px 0px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 0px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* элементы меню */
+.menu__item {
+  display: block;
+  padding: 11px 20px;
+  color: #6B6B6B;
+  font-family: Puritan, sans-serif;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.menu__item:hover {
+  background-color: #CFD8DC;
+}
+
+#menu__toggle:checked ~ .menu__btn > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  visibility: visible;
+  left: 0;
+}
+
+#menu__toggle:checked .header__logo {
+  visibility: hidden;
+}
+
+/*Animation*/
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.menu__box {
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+.menu__item {
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+}
+
+/*  HAMBURGER  */
 .header {
   background: #FFFFFF;
 }
@@ -150,6 +302,25 @@ html {
 
 .header__inner {
   padding: 1.25em 0;
+}
+
+@media (max-width: 670px) {
+  .header__nav {
+    display: none;
+  }
+  .header__inner {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .header__logo {
+    text-align: center;
+  }
+  .header__logo a img {
+    width: 60%;
+  }
+  .hamburger-menu {
+    display: block;
+  }
 }
 
 .firstFrame {
